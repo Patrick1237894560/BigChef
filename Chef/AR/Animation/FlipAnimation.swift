@@ -1,110 +1,59 @@
-import Foundation
-import simd
 import RealityKit
 import UIKit
-import Vision
 import ARKit
 
+/// 翻面（Flip）動畫：當偵測到指定容器後，執行翻面動畫
 class FlipAnimation: Animation {
-    private var flip: Entity
+    /// 以 Entity 描述，可容納帶骨骼或普通模型
+    private let model: Entity
+    /// 指定要偵測的容器
     private let container: Container
-    private var containerBBox: CGRect?
-    private var flipPosition: SIMD3<Float>?
-    private var containerPosition: SIMD3<Float>?
+    private var boundingBoxRect: CGRect?
 
+    override var requiresContainerDetection: Bool { true }
+    override var containerType: Container? { container }
+
+    /// 現在把 container 拿進來，初始化時設定
     init(container: Container,
-         scale: Float = 1.0,
-         isRepeat: Bool = true) {
+         scale: Float = 1,
+         isRepeat: Bool = false) {
         self.container = container
-        self.flip = Entity()
-        super.init(type: .flip,
-                   scale: scale,
-                   isRepeat: isRepeat)
+
+        // 載入 flip.usdz
+        guard let url = Bundle.main.url(forResource: "flip", withExtension: "usdz") else {
+            fatalError("❌ 找不到 flip.usdz")
+        }
+        do {
+            model = try Entity.load(contentsOf: url)
+        } catch {
+            fatalError("❌ 無法載入 flip.usdz：\(error)")
+        }
+
+        super.init(type: .flip, scale: scale, isRepeat: isRepeat)
     }
 
-    private func detectContainerPosition(in arView: ARView, completion: @escaping (SIMD3<Float>?) -> Void) {
-        guard let frame = arView.session.currentFrame else {
-            completion(nil)
-            return
+    /// 將模型加入 Anchor 並播放內建動畫
+    override func applyAnimation(to anchor: AnchorEntity, on arView: ARView) {
+        // 將整個模型（group）加入 anchor
+        anchor.addChild(model)
+        
+        // 調整整組模型的位置：往鏡頭前方 0.5 米之外，並向右下移動
+        model.setPosition(SIMD3<Float>(0.6, -1, -3), relativeTo: anchor)
+        
+        // 套用縮放到整組模型
+        model.setScale(SIMD3<Float>(repeating: scale), relativeTo: anchor)
+        
+        // 直接播放 model 上所有動畫
+        if let animation = model.availableAnimations.first {
+            model.playAnimation(animation, transitionDuration: 0.0, startsPaused: false)
         }
-        let pixelBuffer = frame.capturedImage
-        guard let visionModel = try? VNCoreMLModel(for: CookDetect().model) else {
-            completion(nil)
-            return
-        }
-        let request = VNCoreMLRequest(model: visionModel) { req, _ in
-            guard let observations = req.results as? [VNRecognizedObjectObservation] else {
-                completion(nil)
-                return
-            }
-            let viewSize = arView.bounds.size
-            if let match = observations.first(where: {
-                $0.labels.contains { $0.identifier.lowercased().contains(self.container.rawValue.lowercased()) }
-            }) {
-                let bbox = match.boundingBox
-                self.containerBBox = bbox
-                let mid = CGPoint(x: bbox.midX, y: bbox.midY)
-                let screenPoint = CGPoint(x: mid.x * viewSize.width, y: (1 - mid.y) * viewSize.height)
-                let results = arView.raycast(from: screenPoint, allowing: .estimatedPlane, alignment: .any)
-                completion(results.first?.worldTransform.translation)
-            } else {
-                let centerPoint = CGPoint(x: viewSize.width/2, y: viewSize.height/2)
-                let results = arView.raycast(from: centerPoint, allowing: .estimatedPlane, alignment: .any)
-                completion(results.first?.worldTransform.translation)
-            }
-        }
-        let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .up)
-        DispatchQueue.global(qos: .userInitiated).async {
-            try? handler.perform([request])
-        }
+        
     }
 
-    private func attemptContinuousDetection(in arView: ARView) {
-        detectContainerPosition(in: arView) { pos in
-            if let positionToUse = pos {
-                DispatchQueue.main.async {
-                    self.runFlip(on: arView, at: positionToUse)
-                }
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.attemptContinuousDetection(in: arView)
-                }
-            }
-        }
+    /// 每次 2D 偵測框更新時，儲存以做對齊
+    override func updateBoundingBox(rect: CGRect) {
+        boundingBoxRect = rect
     }
 
-    private func runFlip(on arView: ARView, at pos: SIMD3<Float>) {
-        // Load or reuse flip entity
-        download(resourceName: "flip") { [weak self] node in
-            guard let self = self, let node = node else {
-                print("⚠️ 載入 flip.usdz 失敗")
-                return
-            }
-            self.flip = node
-            // Scale to fit into detected bbox
-            let bbox = self.containerBBox ?? CGRect(x: 0, y: 0, width: 0.2, height: 0.2)
-            let targetMax = max(Float(bbox.width), Float(bbox.height))
-            let bounds = node.visualBounds(recursive: true, relativeTo: nil)
-            let extents = bounds.extents
-            let maxSide = max(extents.x, extents.y, extents.z)
-            let scaleFactor = targetMax / maxSide
-            let finalScale = min(self.scale, scaleFactor)
-            node.setScale(SIMD3<Float>(repeating: finalScale), relativeTo: nil)
-            // Place above container
-            let anchor = AnchorEntity(world: pos)
-            anchor.addChild(node)
-            arView.scene.addAnchor(anchor)
-            // Play USDZ animation if available
-            if let animation = node.availableAnimations.first {
-                let resource = self.isRepeat ? animation.repeat(duration: .infinity) : animation
-                _ = node.playAnimation(resource)
-            } else {
-                print("⚠️ USDZ 檔案無可用動畫：flipEntity")
-            }
-        }
-    }
-
-    override func play(on arView: ARView) {
-        attemptContinuousDetection(in: arView)
-    }
+    
 }

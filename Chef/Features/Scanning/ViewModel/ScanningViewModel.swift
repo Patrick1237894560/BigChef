@@ -116,6 +116,7 @@ final class ScanningViewModel: ObservableObject {
             print("✅ 成功生成食譜，菜名：\(response.dish_name)")
             onNavigateToRecipe?(response)
         } catch {
+            print(error)
             print("❌ 生成食譜失敗：\(error.localizedDescription)")
             // TODO: 處理錯誤狀態
         }

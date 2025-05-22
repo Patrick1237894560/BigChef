@@ -5,7 +5,9 @@ import UIKit
 import RealityKit
 
 
-class AnimationManger {
+class AnimationManager {
+    typealias AnimationManger = AnimationManager   // backward‑compat
+
     private static let sharedModel: GenerativeModel = {
         let apiKey = Bundle.main
             .object(forInfoDictionaryKey: "GEMINI_API_KEY") as? String ?? ""
@@ -14,24 +16,19 @@ class AnimationManger {
 
     private let model: GenerativeModel
 
+    /// 最後一次向 Gemini 發請求的時間
+    private var lastGenerateTime: CFTimeInterval = 0
+    /// 兩次請求最小間隔（秒）
+    private let minInterval: CFTimeInterval = 0.35
+
     init() {
-        self.model = AnimationManger.sharedModel
+        self.model = AnimationManager.sharedModel
     }
     
     private var lastStep: String?
-    private var lastResult: (AnimationType, AnimationParameters)?
+    private var lastResult: (AnimationType, AnimationParams)?
     
-    struct AnimationParameters: Codable {
-        var ingredient: String?
-        var color: String?
-        var coordinate: [Float]?
-        var time: Float?
-        var temperature: Float?
-        var FlameLevel: String?
-        var container: Container?
-    }
-    
-    struct CombinedResult: Codable {
+        struct CombinedResult: Codable {
         var type: String
         var ingredient: String?
         var color: String?
@@ -42,10 +39,16 @@ class AnimationManger {
         var container: String?
     }
     
-    func selectTypeAndParameters(for step: String, from arView: ARView) async -> (AnimationType, AnimationParameters)? {
+    @MainActor func selectTypeAndParameters(for step: String, from arView: ARView) async -> (AnimationType, AnimationParams)? {
         if step == lastStep, let cached = lastResult {
             return cached
         }
+        // 若兩次請求間隔過短，直接回傳快取
+        let now = CACurrentMediaTime()
+        if now - lastGenerateTime < minInterval, let cached = lastResult {
+            return cached
+        }
+        lastGenerateTime = now
         // Build choice list
         let choices = AnimationType.allCases.map { $0.rawValue }.joined(separator: ", ")
         let containerChoices = Container.allCases.map { $0.rawValue }.joined(separator: ", ")
@@ -122,14 +125,14 @@ class AnimationManger {
                 return nil
             }
             let container = result.container.flatMap { Container(rawValue: $0) }
-            let params = AnimationParameters(
-                ingredient: result.ingredient,
-                color: result.color,
-                coordinate: result.coordinate,
-                time: result.time,
+            let params = AnimationParams(
+                coordinate:  result.coordinate,
+                container:   container,
+                ingredient:  result.ingredient,
+                color:       result.color,
+                time:        result.time,
                 temperature: result.temperature,
-                FlameLevel: result.flameLevel,
-                container: container
+                flameLevel:  result.flameLevel
             )
             lastStep = step
             lastResult = (animationType, params)
@@ -149,4 +152,13 @@ class AnimationManger {
             return nil
         }
     }
+}
+struct AnimationParams: Codable {
+    let coordinate: [Float]?
+    let container: Container?
+    let ingredient: String?
+    let color: String?
+    let time: Float?
+    let temperature: Float?
+    let flameLevel: String?
 }

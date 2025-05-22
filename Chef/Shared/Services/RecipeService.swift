@@ -9,7 +9,7 @@ enum RecipeService {
         guard let url = URL(string: "\(baseURL)/api/v1/recipe/suggest") else {
             throw NetworkError.invalidURL
         }
-        
+        print(baseURL)
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")

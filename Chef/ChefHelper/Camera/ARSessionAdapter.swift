@@ -11,7 +11,7 @@ import ARKit
 
 /// ARKit 的包裝，符合 CameraSession
 final class ARSessionAdapter: NSObject, CameraSession {
-
+    let arSession = ARSession()
     private let sceneView = ARSCNView(frame: .zero)
     let previewView: UIView
 

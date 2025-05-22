@@ -7,27 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30BA0AFB2DDC354000C27788 /* CookDetect.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30BA0AFA2DDC354000C27788 /* CookDetect.mlmodel */; };
-		30DC26EF2DD5915E0081F80C /* meat.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30DC26E52DD5915E0081F80C /* meat.usdz */; };
-		30DC26F02DD5915E0081F80C /* flip.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30DC26E42DD5915E0081F80C /* flip.usdz */; };
-		30DC26F22DD5915E0081F80C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DC26E72DD5915E0081F80C /* Preview Assets.xcassets */; };
-		30DC26F32DD5915E0081F80C /* butter.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30DC26E32DD5915E0081F80C /* butter.usdz */; };
-		30DC26F52DD5915E0081F80C /* TemperatureAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26E02DD5915E0081F80C /* TemperatureAnimation.swift */; };
-		30DC26F62DD5915E0081F80C /* CutAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26D82DD5915E0081F80C /* CutAnimation.swift */; };
-		30DC26F72DD5915E0081F80C /* StirAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26DF2DD5915E0081F80C /* StirAnimation.swift */; };
-		30DC26F82DD5915E0081F80C /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26D52DD5915E0081F80C /* Animation.swift */; };
-		30DC26F92DD5915E0081F80C /* FlipAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26DA2DD5915E0081F80C /* FlipAnimation.swift */; };
-		30DC26FA2DD5915E0081F80C /* AnimationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26E92DD5915E0081F80C /* AnimationManger.swift */; };
-		30DC26FB2DD5915E0081F80C /* BeatEggAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26D62DD5915E0081F80C /* BeatEggAnimation.swift */; };
-		30DC26FC2DD5915E0081F80C /* PutIntoContainerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26DD2DD5915E0081F80C /* PutIntoContainerAnimation.swift */; };
-		30DC26FD2DD5915E0081F80C /* TorchAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26E12DD5915E0081F80C /* TorchAnimation.swift */; };
-		30DC26FE2DD5915E0081F80C /* CountdownAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26D72DD5915E0081F80C /* CountdownAnimation.swift */; };
-		30DC26FF2DD5915E0081F80C /* SprinkleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26DE2DD5915E0081F80C /* SprinkleAnimation.swift */; };
-		30DC27002DD5915E0081F80C /* PeelAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26DB2DD5915E0081F80C /* PeelAnimation.swift */; };
-		30DC27012DD5915E0081F80C /* FlameAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26D92DD5915E0081F80C /* FlameAnimation.swift */; };
-		30DC27022DD5915E0081F80C /* PourLiquidAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26DC2DD5915E0081F80C /* PourLiquidAnimation.swift */; };
-		30DC27032DD5915E0081F80C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26EB2DD5915E0081F80C /* ContentView.swift */; };
-		30DC27042DD5915E0081F80C /* CookingARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC26ED2DD5915E0081F80C /* CookingARView.swift */; };
 		30DC27072DD591D00081F80C /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DC27062DD591D00081F80C /* ARKit.framework */; };
 		30DC27092DD591E20081F80C /* RealityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DC27082DD591E20081F80C /* RealityKit.framework */; };
 		30DC270C2DD592D10081F80C /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 30DC270B2DD592D10081F80C /* GoogleGenerativeAI */; };
@@ -37,33 +16,84 @@
 		68CE26CA2DD88BFF00365F01 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 68CE26C92DD88BFF00365F01 /* FirebaseFirestore */; };
 		68CE26CC2DD88C6200365F01 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 68CE26CB2DD88C6200365F01 /* FirebaseCore */; };
 		68CE26CE2DD88C6200365F01 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 68CE26CD2DD88C6200365F01 /* FirebaseStorage */; };
+		9A1E31802DDDC567000E032E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A1E317F2DDDC567000E032E /* GoogleService-Info.plist */; };
+		9A8D2F252DDE0EE20024138D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F1E2DDE0EE20024138D /* ContentView.swift */; };
+		9A8D2F262DDE0EE20024138D /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F222DDE0EE20024138D /* LRUCache.swift */; };
+		9A8D2F272DDE0EE20024138D /* TorchAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F0A2DDE0EE20024138D /* TorchAnimation.swift */; };
+		9A8D2F282DDE0EE20024138D /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2EFE2DDE0EE20024138D /* Animation.swift */; };
+		9A8D2F292DDE0EE20024138D /* AnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F1C2DDE0EE20024138D /* AnimationFactory.swift */; };
+		9A8D2F2A2DDE0EE20024138D /* SprinkleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F072DDE0EE20024138D /* SprinkleAnimation.swift */; };
+		9A8D2F2B2DDE0EE20024138D /* TemperatureAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F092DDE0EE20024138D /* TemperatureAnimation.swift */; };
+		9A8D2F2C2DDE0EE20024138D /* CookDetect.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F1F2DDE0EE20024138D /* CookDetect.mlmodel */; };
+		9A8D2F2D2DDE0EE20024138D /* FlameAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F022DDE0EE20024138D /* FlameAnimation.swift */; };
+		9A8D2F2E2DDE0EE20024138D /* PourLiquidAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F052DDE0EE20024138D /* PourLiquidAnimation.swift */; };
+		9A8D2F2F2DDE0EE20024138D /* ObjectDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F232DDE0EE20024138D /* ObjectDetect.swift */; };
+		9A8D2F302DDE0EE20024138D /* PutIntoContainerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F062DDE0EE20024138D /* PutIntoContainerAnimation.swift */; };
+		9A8D2F312DDE0EE20024138D /* CookingARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F202DDE0EE20024138D /* CookingARView.swift */; };
+		9A8D2F322DDE0EE20024138D /* CutAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F012DDE0EE20024138D /* CutAnimation.swift */; };
+		9A8D2F332DDE0EE20024138D /* FlipAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F032DDE0EE20024138D /* FlipAnimation.swift */; };
+		9A8D2F342DDE0EE20024138D /* DetectionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F212DDE0EE20024138D /* DetectionTestView.swift */; };
+		9A8D2F352DDE0EE20024138D /* AnimationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F1D2DDE0EE20024138D /* AnimationManger.swift */; };
+		9A8D2F362DDE0EE20024138D /* CountdownAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F002DDE0EE20024138D /* CountdownAnimation.swift */; };
+		9A8D2F372DDE0EE20024138D /* StirAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F082DDE0EE20024138D /* StirAnimation.swift */; };
+		9A8D2F382DDE0EE20024138D /* BeatEggAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2EFF2DDE0EE20024138D /* BeatEggAnimation.swift */; };
+		9A8D2F392DDE0EE20024138D /* PeelAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D2F042DDE0EE20024138D /* PeelAnimation.swift */; };
+		9A8D2F3A2DDE0EE20024138D /* flame_large.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F0F2DDE0EE20024138D /* flame_large.usdz */; };
+		9A8D2F3B2DDE0EE20024138D /* butter.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F0C2DDE0EE20024138D /* butter.usdz */; };
+		9A8D2F3C2DDE0EE20024138D /* flame_medium.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F102DDE0EE20024138D /* flame_medium.usdz */; };
+		9A8D2F3D2DDE0EE20024138D /* flame_small.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F112DDE0EE20024138D /* flame_small.usdz */; };
+		9A8D2F3E2DDE0EE20024138D /* stir.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F182DDE0EE20024138D /* stir.usdz */; };
+		9A8D2F3F2DDE0EE20024138D /* garlic.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F132DDE0EE20024138D /* garlic.usdz */; };
+		9A8D2F402DDE0EE20024138D /* flip.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F122DDE0EE20024138D /* flip.usdz */; };
+		9A8D2F412DDE0EE20024138D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F1A2DDE0EE20024138D /* Preview Assets.xcassets */; };
+		9A8D2F422DDE0EE20024138D /* ingredient.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F142DDE0EE20024138D /* ingredient.usdz */; };
+		9A8D2F432DDE0EE20024138D /* sprinkle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F172DDE0EE20024138D /* sprinkle.usdz */; };
+		9A8D2F442DDE0EE20024138D /* countdown.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F0D2DDE0EE20024138D /* countdown.usdz */; };
+		9A8D2F452DDE0EE20024138D /* cut.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F0E2DDE0EE20024138D /* cut.usdz */; };
+		9A8D2F462DDE0EE20024138D /* meat.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F152DDE0EE20024138D /* meat.usdz */; };
+		9A8D2F472DDE0EE20024138D /* pourLiquid.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D2F162DDE0EE20024138D /* pourLiquid.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		30AB0E1D2DD64F2700101557 /* ChefHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChefHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		30BA0AFA2DDC354000C27788 /* CookDetect.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CookDetect.mlmodel; sourceTree = "<group>"; };
-		30DC26D52DD5915E0081F80C /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
-		30DC26D62DD5915E0081F80C /* BeatEggAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatEggAnimation.swift; sourceTree = "<group>"; };
-		30DC26D72DD5915E0081F80C /* CountdownAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownAnimation.swift; sourceTree = "<group>"; };
-		30DC26D82DD5915E0081F80C /* CutAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutAnimation.swift; sourceTree = "<group>"; };
-		30DC26D92DD5915E0081F80C /* FlameAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlameAnimation.swift; sourceTree = "<group>"; };
-		30DC26DA2DD5915E0081F80C /* FlipAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipAnimation.swift; sourceTree = "<group>"; };
-		30DC26DB2DD5915E0081F80C /* PeelAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeelAnimation.swift; sourceTree = "<group>"; };
-		30DC26DC2DD5915E0081F80C /* PourLiquidAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PourLiquidAnimation.swift; sourceTree = "<group>"; };
-		30DC26DD2DD5915E0081F80C /* PutIntoContainerAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutIntoContainerAnimation.swift; sourceTree = "<group>"; };
-		30DC26DE2DD5915E0081F80C /* SprinkleAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprinkleAnimation.swift; sourceTree = "<group>"; };
-		30DC26DF2DD5915E0081F80C /* StirAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StirAnimation.swift; sourceTree = "<group>"; };
-		30DC26E02DD5915E0081F80C /* TemperatureAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureAnimation.swift; sourceTree = "<group>"; };
-		30DC26E12DD5915E0081F80C /* TorchAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchAnimation.swift; sourceTree = "<group>"; };
-		30DC26E32DD5915E0081F80C /* butter.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = butter.usdz; sourceTree = "<group>"; };
-		30DC26E42DD5915E0081F80C /* flip.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = flip.usdz; sourceTree = "<group>"; };
-		30DC26E52DD5915E0081F80C /* meat.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = meat.usdz; sourceTree = "<group>"; };
-		30DC26E72DD5915E0081F80C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		30DC26E92DD5915E0081F80C /* AnimationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManger.swift; sourceTree = "<group>"; };
-		30DC26EB2DD5915E0081F80C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		30DC26ED2DD5915E0081F80C /* CookingARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingARView.swift; sourceTree = "<group>"; };
 		30DC27062DD591D00081F80C /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 		30DC27082DD591E20081F80C /* RealityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityKit.framework; path = System/Library/Frameworks/RealityKit.framework; sourceTree = SDKROOT; };
+		9A1E317F2DDDC567000E032E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9A8D2EFE2DDE0EE20024138D /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		9A8D2EFF2DDE0EE20024138D /* BeatEggAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatEggAnimation.swift; sourceTree = "<group>"; };
+		9A8D2F002DDE0EE20024138D /* CountdownAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownAnimation.swift; sourceTree = "<group>"; };
+		9A8D2F012DDE0EE20024138D /* CutAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutAnimation.swift; sourceTree = "<group>"; };
+		9A8D2F022DDE0EE20024138D /* FlameAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlameAnimation.swift; sourceTree = "<group>"; };
+		9A8D2F032DDE0EE20024138D /* FlipAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipAnimation.swift; sourceTree = "<group>"; };
+		9A8D2F042DDE0EE20024138D /* PeelAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeelAnimation.swift; sourceTree = "<group>"; };
+		9A8D2F052DDE0EE20024138D /* PourLiquidAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PourLiquidAnimation.swift; sourceTree = "<group>"; };
+		9A8D2F062DDE0EE20024138D /* PutIntoContainerAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutIntoContainerAnimation.swift; sourceTree = "<group>"; };
+		9A8D2F072DDE0EE20024138D /* SprinkleAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprinkleAnimation.swift; sourceTree = "<group>"; };
+		9A8D2F082DDE0EE20024138D /* StirAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StirAnimation.swift; sourceTree = "<group>"; };
+		9A8D2F092DDE0EE20024138D /* TemperatureAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureAnimation.swift; sourceTree = "<group>"; };
+		9A8D2F0A2DDE0EE20024138D /* TorchAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchAnimation.swift; sourceTree = "<group>"; };
+		9A8D2F0C2DDE0EE20024138D /* butter.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = butter.usdz; sourceTree = "<group>"; };
+		9A8D2F0D2DDE0EE20024138D /* countdown.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = countdown.usdz; sourceTree = "<group>"; };
+		9A8D2F0E2DDE0EE20024138D /* cut.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = cut.usdz; sourceTree = "<group>"; };
+		9A8D2F0F2DDE0EE20024138D /* flame_large.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = flame_large.usdz; sourceTree = "<group>"; };
+		9A8D2F102DDE0EE20024138D /* flame_medium.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = flame_medium.usdz; sourceTree = "<group>"; };
+		9A8D2F112DDE0EE20024138D /* flame_small.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = flame_small.usdz; sourceTree = "<group>"; };
+		9A8D2F122DDE0EE20024138D /* flip.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = flip.usdz; sourceTree = "<group>"; };
+		9A8D2F132DDE0EE20024138D /* garlic.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = garlic.usdz; sourceTree = "<group>"; };
+		9A8D2F142DDE0EE20024138D /* ingredient.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = ingredient.usdz; sourceTree = "<group>"; };
+		9A8D2F152DDE0EE20024138D /* meat.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = meat.usdz; sourceTree = "<group>"; };
+		9A8D2F162DDE0EE20024138D /* pourLiquid.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = pourLiquid.usdz; sourceTree = "<group>"; };
+		9A8D2F172DDE0EE20024138D /* sprinkle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = sprinkle.usdz; sourceTree = "<group>"; };
+		9A8D2F182DDE0EE20024138D /* stir.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = stir.usdz; sourceTree = "<group>"; };
+		9A8D2F1A2DDE0EE20024138D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9A8D2F1C2DDE0EE20024138D /* AnimationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationFactory.swift; sourceTree = "<group>"; };
+		9A8D2F1D2DDE0EE20024138D /* AnimationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManger.swift; sourceTree = "<group>"; };
+		9A8D2F1E2DDE0EE20024138D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9A8D2F1F2DDE0EE20024138D /* CookDetect.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CookDetect.mlmodel; sourceTree = "<group>"; };
+		9A8D2F202DDE0EE20024138D /* CookingARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingARView.swift; sourceTree = "<group>"; };
+		9A8D2F212DDE0EE20024138D /* DetectionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionTestView.swift; sourceTree = "<group>"; };
+		9A8D2F222DDE0EE20024138D /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
+		9A8D2F232DDE0EE20024138D /* ObjectDetect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -135,8 +165,8 @@
 		30D9E04A2DA60DC0001CDE03 = {
 			isa = PBXGroup;
 			children = (
+				9A8D2F242DDE0EE20024138D /* AR */,
 				FCCA81082DD7BC8E003346E7 /* Routing */,
-				30DC26EE2DD5915E0081F80C /* AR */,
 				30501B4C2DC332B100CB2198 /* Shared */,
 				30D9E0552DA60DC0001CDE03 /* ChefHelper */,
 				30501B422DC331C700CB2198 /* Features */,
@@ -144,59 +174,8 @@
 				3044BC162DCC7DCB00216D3A /* UnitTest */,
 				30DC27052DD591D00081F80C /* Frameworks */,
 				30AB0E1D2DD64F2700101557 /* ChefHelper.app */,
+				9A1E317F2DDDC567000E032E /* GoogleService-Info.plist */,
 			);
-			sourceTree = "<group>";
-		};
-		30DC26E22DD5915E0081F80C /* Animation */ = {
-			isa = PBXGroup;
-			children = (
-				30DC26D52DD5915E0081F80C /* Animation.swift */,
-				30DC26D62DD5915E0081F80C /* BeatEggAnimation.swift */,
-				30DC26D72DD5915E0081F80C /* CountdownAnimation.swift */,
-				30DC26D82DD5915E0081F80C /* CutAnimation.swift */,
-				30DC26D92DD5915E0081F80C /* FlameAnimation.swift */,
-				30DC26DA2DD5915E0081F80C /* FlipAnimation.swift */,
-				30DC26DB2DD5915E0081F80C /* PeelAnimation.swift */,
-				30DC26DC2DD5915E0081F80C /* PourLiquidAnimation.swift */,
-				30DC26DD2DD5915E0081F80C /* PutIntoContainerAnimation.swift */,
-				30DC26DE2DD5915E0081F80C /* SprinkleAnimation.swift */,
-				30DC26DF2DD5915E0081F80C /* StirAnimation.swift */,
-				30DC26E02DD5915E0081F80C /* TemperatureAnimation.swift */,
-				30DC26E12DD5915E0081F80C /* TorchAnimation.swift */,
-			);
-			path = Animation;
-			sourceTree = "<group>";
-		};
-		30DC26E62DD5915E0081F80C /* model */ = {
-			isa = PBXGroup;
-			children = (
-				30DC26E32DD5915E0081F80C /* butter.usdz */,
-				30DC26E42DD5915E0081F80C /* flip.usdz */,
-				30DC26E52DD5915E0081F80C /* meat.usdz */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		30DC26E82DD5915E0081F80C /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				30DC26E72DD5915E0081F80C /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		30DC26EE2DD5915E0081F80C /* AR */ = {
-			isa = PBXGroup;
-			children = (
-				30BA0AFA2DDC354000C27788 /* CookDetect.mlmodel */,
-				30DC26E22DD5915E0081F80C /* Animation */,
-				30DC26E62DD5915E0081F80C /* model */,
-				30DC26E82DD5915E0081F80C /* Preview Content */,
-				30DC26E92DD5915E0081F80C /* AnimationManger.swift */,
-				30DC26EB2DD5915E0081F80C /* ContentView.swift */,
-				30DC26ED2DD5915E0081F80C /* CookingARView.swift */,
-			);
-			path = AR;
 			sourceTree = "<group>";
 		};
 		30DC27052DD591D00081F80C /* Frameworks */ = {
@@ -206,6 +185,72 @@
 				30DC27062DD591D00081F80C /* ARKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A8D2F0B2DDE0EE20024138D /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				9A8D2EFE2DDE0EE20024138D /* Animation.swift */,
+				9A8D2EFF2DDE0EE20024138D /* BeatEggAnimation.swift */,
+				9A8D2F002DDE0EE20024138D /* CountdownAnimation.swift */,
+				9A8D2F012DDE0EE20024138D /* CutAnimation.swift */,
+				9A8D2F022DDE0EE20024138D /* FlameAnimation.swift */,
+				9A8D2F032DDE0EE20024138D /* FlipAnimation.swift */,
+				9A8D2F042DDE0EE20024138D /* PeelAnimation.swift */,
+				9A8D2F052DDE0EE20024138D /* PourLiquidAnimation.swift */,
+				9A8D2F062DDE0EE20024138D /* PutIntoContainerAnimation.swift */,
+				9A8D2F072DDE0EE20024138D /* SprinkleAnimation.swift */,
+				9A8D2F082DDE0EE20024138D /* StirAnimation.swift */,
+				9A8D2F092DDE0EE20024138D /* TemperatureAnimation.swift */,
+				9A8D2F0A2DDE0EE20024138D /* TorchAnimation.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		9A8D2F192DDE0EE20024138D /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9A8D2F0C2DDE0EE20024138D /* butter.usdz */,
+				9A8D2F0D2DDE0EE20024138D /* countdown.usdz */,
+				9A8D2F0E2DDE0EE20024138D /* cut.usdz */,
+				9A8D2F0F2DDE0EE20024138D /* flame_large.usdz */,
+				9A8D2F102DDE0EE20024138D /* flame_medium.usdz */,
+				9A8D2F112DDE0EE20024138D /* flame_small.usdz */,
+				9A8D2F122DDE0EE20024138D /* flip.usdz */,
+				9A8D2F132DDE0EE20024138D /* garlic.usdz */,
+				9A8D2F142DDE0EE20024138D /* ingredient.usdz */,
+				9A8D2F152DDE0EE20024138D /* meat.usdz */,
+				9A8D2F162DDE0EE20024138D /* pourLiquid.usdz */,
+				9A8D2F172DDE0EE20024138D /* sprinkle.usdz */,
+				9A8D2F182DDE0EE20024138D /* stir.usdz */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		9A8D2F1B2DDE0EE20024138D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9A8D2F1A2DDE0EE20024138D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9A8D2F242DDE0EE20024138D /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				9A8D2F0B2DDE0EE20024138D /* Animation */,
+				9A8D2F192DDE0EE20024138D /* model */,
+				9A8D2F1B2DDE0EE20024138D /* Preview Content */,
+				9A8D2F1C2DDE0EE20024138D /* AnimationFactory.swift */,
+				9A8D2F1D2DDE0EE20024138D /* AnimationManger.swift */,
+				9A8D2F1E2DDE0EE20024138D /* ContentView.swift */,
+				9A8D2F1F2DDE0EE20024138D /* CookDetect.mlmodel */,
+				9A8D2F202DDE0EE20024138D /* CookingARView.swift */,
+				9A8D2F212DDE0EE20024138D /* DetectionTestView.swift */,
+				9A8D2F222DDE0EE20024138D /* LRUCache.swift */,
+				9A8D2F232DDE0EE20024138D /* ObjectDetect.swift */,
+			);
+			path = AR;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,10 +334,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30DC26EF2DD5915E0081F80C /* meat.usdz in Resources */,
-				30DC26F02DD5915E0081F80C /* flip.usdz in Resources */,
-				30DC26F22DD5915E0081F80C /* Preview Assets.xcassets in Resources */,
-				30DC26F32DD5915E0081F80C /* butter.usdz in Resources */,
+				9A8D2F3A2DDE0EE20024138D /* flame_large.usdz in Resources */,
+				9A8D2F3B2DDE0EE20024138D /* butter.usdz in Resources */,
+				9A8D2F3C2DDE0EE20024138D /* flame_medium.usdz in Resources */,
+				9A8D2F3D2DDE0EE20024138D /* flame_small.usdz in Resources */,
+				9A8D2F3E2DDE0EE20024138D /* stir.usdz in Resources */,
+				9A8D2F3F2DDE0EE20024138D /* garlic.usdz in Resources */,
+				9A8D2F402DDE0EE20024138D /* flip.usdz in Resources */,
+				9A8D2F412DDE0EE20024138D /* Preview Assets.xcassets in Resources */,
+				9A8D2F422DDE0EE20024138D /* ingredient.usdz in Resources */,
+				9A8D2F432DDE0EE20024138D /* sprinkle.usdz in Resources */,
+				9A8D2F442DDE0EE20024138D /* countdown.usdz in Resources */,
+				9A8D2F452DDE0EE20024138D /* cut.usdz in Resources */,
+				9A8D2F462DDE0EE20024138D /* meat.usdz in Resources */,
+				9A8D2F472DDE0EE20024138D /* pourLiquid.usdz in Resources */,
+				9A1E31802DDDC567000E032E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,23 +359,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30DC26F52DD5915E0081F80C /* TemperatureAnimation.swift in Sources */,
-				30DC26F62DD5915E0081F80C /* CutAnimation.swift in Sources */,
-				30DC26F72DD5915E0081F80C /* StirAnimation.swift in Sources */,
-				30DC26F82DD5915E0081F80C /* Animation.swift in Sources */,
-				30DC26F92DD5915E0081F80C /* FlipAnimation.swift in Sources */,
-				30DC26FA2DD5915E0081F80C /* AnimationManger.swift in Sources */,
-				30BA0AFB2DDC354000C27788 /* CookDetect.mlmodel in Sources */,
-				30DC26FB2DD5915E0081F80C /* BeatEggAnimation.swift in Sources */,
-				30DC26FC2DD5915E0081F80C /* PutIntoContainerAnimation.swift in Sources */,
-				30DC26FD2DD5915E0081F80C /* TorchAnimation.swift in Sources */,
-				30DC26FE2DD5915E0081F80C /* CountdownAnimation.swift in Sources */,
-				30DC26FF2DD5915E0081F80C /* SprinkleAnimation.swift in Sources */,
-				30DC27002DD5915E0081F80C /* PeelAnimation.swift in Sources */,
-				30DC27012DD5915E0081F80C /* FlameAnimation.swift in Sources */,
-				30DC27022DD5915E0081F80C /* PourLiquidAnimation.swift in Sources */,
-				30DC27032DD5915E0081F80C /* ContentView.swift in Sources */,
-				30DC27042DD5915E0081F80C /* CookingARView.swift in Sources */,
+				9A8D2F252DDE0EE20024138D /* ContentView.swift in Sources */,
+				9A8D2F262DDE0EE20024138D /* LRUCache.swift in Sources */,
+				9A8D2F272DDE0EE20024138D /* TorchAnimation.swift in Sources */,
+				9A8D2F282DDE0EE20024138D /* Animation.swift in Sources */,
+				9A8D2F292DDE0EE20024138D /* AnimationFactory.swift in Sources */,
+				9A8D2F2A2DDE0EE20024138D /* SprinkleAnimation.swift in Sources */,
+				9A8D2F2B2DDE0EE20024138D /* TemperatureAnimation.swift in Sources */,
+				9A8D2F2C2DDE0EE20024138D /* CookDetect.mlmodel in Sources */,
+				9A8D2F2D2DDE0EE20024138D /* FlameAnimation.swift in Sources */,
+				9A8D2F2E2DDE0EE20024138D /* PourLiquidAnimation.swift in Sources */,
+				9A8D2F2F2DDE0EE20024138D /* ObjectDetect.swift in Sources */,
+				9A8D2F302DDE0EE20024138D /* PutIntoContainerAnimation.swift in Sources */,
+				9A8D2F312DDE0EE20024138D /* CookingARView.swift in Sources */,
+				9A8D2F322DDE0EE20024138D /* CutAnimation.swift in Sources */,
+				9A8D2F332DDE0EE20024138D /* FlipAnimation.swift in Sources */,
+				9A8D2F342DDE0EE20024138D /* DetectionTestView.swift in Sources */,
+				9A8D2F352DDE0EE20024138D /* AnimationManger.swift in Sources */,
+				9A8D2F362DDE0EE20024138D /* CountdownAnimation.swift in Sources */,
+				9A8D2F372DDE0EE20024138D /* StirAnimation.swift in Sources */,
+				9A8D2F382DDE0EE20024138D /* BeatEggAnimation.swift in Sources */,
+				9A8D2F392DDE0EE20024138D /* PeelAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,11 +522,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChefHelper/Preview Content\"";
-				DEVELOPMENT_TEAM = YB987PVDMC;
+				DEVELOPMENT_TEAM = K6ZK2249ST;
 				ENABLE_PREVIEWS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ChefHelper/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "需要開啟權限";
@@ -481,7 +541,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mitch.ChefHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rong.ChefHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -500,10 +560,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChefHelper/Preview Content\"";
-				DEVELOPMENT_TEAM = YB987PVDMC;
+				DEVELOPMENT_TEAM = K6ZK2249ST;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ChefHelper/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "需要開啟權限";
@@ -518,7 +578,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mitch.ChefHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rong.ChefHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_COMPILATION_MODE = singlefile;

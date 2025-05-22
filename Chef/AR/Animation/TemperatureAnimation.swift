@@ -4,7 +4,7 @@ import RealityKit
 import UIKit
 import Vision
 import ARKit
-
+/*
 class TemperatureAnimation: Animation {
     private let temperatureValue: Int
     private let temperature: Entity
@@ -120,4 +120,4 @@ class TemperatureAnimation: Animation {
     override func play(on arView: ARView) {
         attemptContinuousDetection(in: arView)
     }
-}
+}*/

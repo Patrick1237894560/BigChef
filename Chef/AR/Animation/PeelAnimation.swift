@@ -1,7 +1,7 @@
 import Foundation
 import simd
 import RealityKit
-
+/*
 class PeelAnimation: Animation {
     private let peel: Entity
     private var peelPosition: SIMD3<Float>?
@@ -35,4 +35,4 @@ class PeelAnimation: Animation {
             print("⚠️ USDZ 檔案無可用動畫：peel")
         }
     }
-}
+}*/

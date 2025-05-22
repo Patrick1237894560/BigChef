@@ -38,18 +38,28 @@ final class CookViewController: BaseCameraViewController<ARSessionAdapter> {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let arContainer = UIHostingController(rootView: CookingARView(viewModel: stepViewModel))
+        let arContainer = UIHostingController(
+            rootView: CookingARView(
+                step: .constant(stepViewModel.currentDescription),
+                externalSession: session.arSession  // ⬅️ 傳入你原本建立的 ARSession
+            )
+        )
         addChild(arContainer)
-        view.insertSubview(arContainer.view, at: 0)
         arContainer.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(arContainer.view)
+
         NSLayoutConstraint.activate([
             arContainer.view.topAnchor.constraint(equalTo: view.topAnchor),
             arContainer.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             arContainer.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             arContainer.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+
         arContainer.didMove(toParent: self)
 
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            print("📏 AR Container frame = \(arContainer.view.frame)")
+        }
         // ▲ Step Label
         stepLabel.numberOfLines = 0
         stepLabel.textColor = .white

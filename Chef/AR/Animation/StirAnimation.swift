@@ -1,106 +1,54 @@
 import Foundation
 import simd
 import RealityKit
-import Vision
-import ARKit
 
+/// 攪拌（Stir）動畫：在容器偵測後，在容器內部位置執行攪拌動作
 class StirAnimation: Animation {
-    private let stir: Entity
     private let container: Container
-    private var containerPosition: SIMD3<Float>?
-    private var stirPosition: SIMD3<Float>?
-    private var containerBBox: CGRect?
+    private let model: Entity
+    private var boundingBoxRect: CGRect?
 
-    init(container: Container, scale: Float = 1.0, isRepeat: Bool = false) {
+    /// 簡易 LRUCache: 每個子類可維護自己的快取
+    private static let modelCache = LRUCache<URL, Entity>(capacity: 10)
+
+    init(container: Container,
+         scale: Float = 1.0,
+         isRepeat: Bool = true) {
         self.container = container
-        guard let url = Bundle.main.url(forResource: "stir", withExtension: "usdz") else {
-            fatalError("❌ 找不到 stir.usdz")
-        }
-        do {
-            stir = try Entity.load(contentsOf: url)
-        } catch {
-            fatalError("❌ 無法載入 stir.usdz：\(error)")
+        // 快取或載入 USDZ 模型
+        let url = Bundle.main.url(forResource: "stir", withExtension: "usdz")!
+        if let cached = StirAnimation.modelCache[url] {
+            model = cached
+        } else {
+            let loaded = try! Entity.load(contentsOf: url)
+            StirAnimation.modelCache[url] = loaded
+            model = loaded
         }
         super.init(type: .stir, scale: scale, isRepeat: isRepeat)
     }
 
-    private func detectContainerPosition(in arView: ARView, completion: @escaping (SIMD3<Float>?) -> Void) {
-        guard let frame = arView.session.currentFrame else {
-            completion(nil)
-            return
+    override var requiresContainerDetection: Bool { true }
+    override var containerType: Container? { container }
+
+    /// 當父類的 play 被呼叫時，自動注入到 Anchor 上並播放動畫
+    override func applyAnimation(to anchor: AnchorEntity, on arView: ARView) {
+        // 若已接收到最新的框，Coordinator 可先呼叫 updatePosition
+        if let rect = boundingBoxRect {
+            // Coordinator 可使用此 rect 將 Anchor 置於對應世界座標
         }
-        let pixelBuffer = frame.capturedImage
-        guard let visionModel = try? VNCoreMLModel(for: CookDetect().model) else {
-            completion(nil)
-            return
-        }
-        let request = VNCoreMLRequest(model: visionModel) { req, _ in
-            guard let observations = req.results as? [VNRecognizedObjectObservation] else {
-                completion(nil)
-                return
-            }
-            let viewSize = arView.bounds.size
-            if let match = observations.first(where: {
-                $0.labels.contains { $0.identifier.lowercased().contains(self.container.rawValue.lowercased()) }
-            }) {
-                let bbox = match.boundingBox
-                self.containerBBox = bbox
-                let mid = CGPoint(x: bbox.midX, y: bbox.midY)
-                let screenPoint = CGPoint(x: mid.x * viewSize.width, y: (1 - mid.y) * viewSize.height)
-                let results = arView.raycast(from: screenPoint, allowing: .estimatedPlane, alignment: .any)
-                completion(results.first?.worldTransform.translation)
-            } else {
-                let centerPoint = CGPoint(x: viewSize.width/2, y: viewSize.height/2)
-                let results = arView.raycast(from: centerPoint, allowing: .estimatedPlane, alignment: .any)
-                completion(results.first?.worldTransform.translation)
-            }
-        }
-        let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .up)
-        DispatchQueue.global(qos: .userInitiated).async {
-            try? handler.perform([request])
+        let instance = model.clone(recursive: true)
+        instance.scale = SIMD3<Float>(repeating: scale)
+        instance.position.z -= 1
+        anchor.addChild(instance)
+        if let res = instance.availableAnimations.first {
+            instance.playAnimation(res,
+                                     transitionDuration: 0.2,
+                                     startsPaused: false)
         }
     }
 
-    private func attemptContinuousDetection(in arView: ARView) {
-        detectContainerPosition(in: arView) { pos in
-            if let positionToUse = pos {
-                DispatchQueue.main.async {
-                    self.runStir(on: arView, at: positionToUse)
-                }
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.attemptContinuousDetection(in: arView)
-                }
-            }
-        }
-    }
-
-    private func runStir(on arView: ARView, at pos: SIMD3<Float>) {
-        let anchor = AnchorEntity(world: pos)
-        let entity = stir
-        // compute scale based on bounding box
-        let bbox = self.containerBBox ?? CGRect(x: 0, y: 0, width: 0.2, height: 0.2)
-        let normalizedMaxSide = max(Float(bbox.width), Float(bbox.height))
-        let stirBounds = entity.visualBounds(recursive: true, relativeTo: anchor)
-        let modelExtents = stirBounds.extents
-        let maxModelSide = max(modelExtents.x, modelExtents.y, modelExtents.z)
-        let scaleFactor = normalizedMaxSide / maxModelSide
-        let finalScale = min(self.scale, scaleFactor)
-        entity.setScale(SIMD3<Float>(repeating: finalScale), relativeTo: anchor)
-        // position stir slightly above container
-        entity.position = SIMD3<Float>(0, normalizedMaxSide/2 + 0.05, 0)
-        anchor.addChild(entity)
-        arView.scene.addAnchor(anchor)
-        // play animation
-        if let animation = entity.availableAnimations.first {
-            let resource = isRepeat ? animation.repeat(duration: .infinity) : animation
-            _ = entity.playAnimation(resource)
-        } else {
-            print("⚠️ USDZ 檔案無可用動畫：stir")
-        }
-    }
-
-    override func play(on arView: ARView) {
-        attemptContinuousDetection(in: arView)
+    /// 每次物件偵測框更新時記錄，實際定位由 Coordinator 處理
+    override func updateBoundingBox(rect: CGRect) {
+        boundingBoxRect = rect
     }
 }

@@ -17,7 +17,10 @@ import UIKit
 
 
 class ViewController: UIViewController {
-
+    // 發送 POST 請求的函數
+    private static var baseURL: String {
+        Bundle.main.object(forInfoDictionaryKey: "API_BASE_URL") as? String ?? ""
+    }
 
 
     @IBAction func request(_ sender: Any) {
@@ -49,12 +52,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    // 發送 POST 請求的函數
 
+    
     func generateRecipe(request: SuggestRecipeRequest) {
 
-        guard let url = URL(string: "http://localhost:8080/api/v1/recipe/suggest") else {
-
+        guard let url = URL(string: "http://\(ViewController.baseURL):8080/api/v1/recipe/suggest") else {
             print("無效的 URL")
 
             return

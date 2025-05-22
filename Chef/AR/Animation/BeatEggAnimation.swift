@@ -4,7 +4,7 @@ import ARKit
 import Foundation
 import simd
 import RealityKit
-
+/*
 class BeatEggAnimation: Animation {
     private let beatEgg: Entity
     private let container: Container
@@ -89,7 +89,8 @@ class BeatEggAnimation: Animation {
         arView.scene.addAnchor(anchor)
     }
     
-    override func play(on arView: ARView) {
+    override func play(on arView: ARView, reuseAnchor: Bool = false) {
+        // BeatEggAnimation 先做容器偵測；完成後由 runBeatEgg(on:at:) 建立 / 重用 anchor
         attemptContinuousDetection(in: arView)
     }
-}
+}*/

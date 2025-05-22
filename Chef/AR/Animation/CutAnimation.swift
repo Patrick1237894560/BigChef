@@ -2,39 +2,38 @@ import Foundation
 import simd
 import RealityKit
 
+/// 切割動作動畫
 class CutAnimation: Animation {
-    private let cut: Entity
-    private var cutPosition: SIMD3<Float>?
+    override var requiresContainerDetection: Bool { false }
+    override var containerType: Container? { nil }
 
-    init(cutPosition: SIMD3<Float>? = nil, scale: Float = 1.0, isRepeat: Bool = false) {
-        guard let url = Bundle.main.url(forResource: "cut", withExtension: "usdz") else {
-            fatalError("❌ 找不到 cut.usdz")
-        }
-        do {
-            cut = try Entity.load(contentsOf: url)
-        } catch {
-            fatalError("❌ 無法載入 cut.usdz：\(error)")
-        }
-        self.cutPosition = cutPosition
+    private let cutPosition: SIMD3<Float>
+    private let model: Entity
+
+    /// 初始化時載入模型與設定位置
+    init(position: SIMD3<Float>, scale: Float = 1.0, isRepeat: Bool = false) {
+        self.cutPosition = position
+        // 從資源載入 USDZ
+        let url = Bundle.main.url(forResource: "cut", withExtension: "usdz")!
+        self.model = try! Entity.load(contentsOf: url)
         super.init(type: .cut, scale: scale, isRepeat: isRepeat)
     }
 
-    override func play(on arView: ARView) {
-        let entity = cut
-        guard let cutPosition = cutPosition else {
-            print("⚠️ 未設定 cutPosition，無法播放 cut 動畫")
-            return
-        }
-        let anchor = AnchorEntity(world: cutPosition)
+    /// 將模型加到 Anchor 並執行動畫
+    override func applyAnimation(to anchor: AnchorEntity, on arView: ARView) {
+        let entity = model.clone(recursive: true)
+        entity.scale = SIMD3<Float>(repeating: scale)
+        anchor.transform.translation = cutPosition
         anchor.addChild(entity)
-        arView.scene.addAnchor(anchor)
+
         if let animation = entity.availableAnimations.first {
             let resource = isRepeat
                 ? animation.repeat(duration: .infinity)
                 : animation
             _ = entity.playAnimation(resource)
+            print("✅ 動畫播放開始：")
         } else {
-            print("⚠️ USDZ 檔案無可用動畫：cut")
+            print("⚠️ USDZ 無可用動畫：cut")
         }
     }
 }

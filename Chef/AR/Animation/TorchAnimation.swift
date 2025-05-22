@@ -1,7 +1,7 @@
 import Foundation
 import simd
 import RealityKit
-
+/*
 class TorchAnimation: Animation {
     private let torch: Entity
     private var torchPosition: SIMD3<Float>?
@@ -37,4 +37,4 @@ class TorchAnimation: Animation {
             print("⚠️ USDZ 檔案無可用動畫：torch")
         }
     }
-}
+}*/
